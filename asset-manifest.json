@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/storyloftNew/static/css/main.077f053b.css",
+    "main.js": "/storyloftNew/static/js/main.c80a4b52.js",
+    "static/js/453.1d78c54b.chunk.js": "/storyloftNew/static/js/453.1d78c54b.chunk.js",
+    "static/media/background pattern.png": "/storyloftNew/static/media/background pattern.7faaf8bbe9deea54ddc6.7faaf8bbe9deea54ddc6.png",
+    "index.html": "/storyloftNew/index.html",
+    "main.077f053b.css.map": "/storyloftNew/static/css/main.077f053b.css.map",
+    "main.c80a4b52.js.map": "/storyloftNew/static/js/main.c80a4b52.js.map",
+    "453.1d78c54b.chunk.js.map": "/storyloftNew/static/js/453.1d78c54b.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.077f053b.css",
+    "static/js/main.c80a4b52.js"
+  ]
+}
