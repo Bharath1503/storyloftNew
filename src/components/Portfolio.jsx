@@ -33,6 +33,7 @@ const Portfolio = () => {
                                 .then((result) => {
                                     imagesbase64.push(result);
                                     setImagesbase64(imagesbase64);
+                                    if(i===3)
                                     setImages(images);  
                                 })
                                 .catch((error) => console.error(error));
