@@ -4,6 +4,7 @@ import { HashRouter, Route, Routes, Navigate } from 'react-router-dom';
 import Dashboard from './components/Dashboard';
 import Portfolio from './components/Portfolio';
 import LoginForm from './components/LoginForm';
+import Testimonials from './components/Testimonials';
 
 const DummyPage = ({ page }) => <div>{page}</div>;
 
@@ -12,21 +13,23 @@ function App() {
     <div>
       <HashRouter>
         <Routes>
-          {/* Default redirect to /dashboard */}
+         
           <Route path="/" element={<Navigate to="/dashboard" />} />
 
-          {/* Login route */}
+        
           <Route path="/login" element={<LoginForm />} />
 
-          {/* Dashboard and Portfolio routes */}
+          
           <Route path="/dashboard" element={<Dashboard />} />
+
+         
           <Route path="/portfolio" element={<Portfolio />} />
 
-          {/* Dynamic routes */}
+
           {[
             'brandcommunication', 
             'characters', 
-            'clientandtestimonials', 
+            'clientandtestimonial', 
             'learninganddevelopment', 
             'newsupdates', 
             'performanceandfineart', 
@@ -38,6 +41,9 @@ function App() {
               element={<DummyPage page={page.replace(/([A-Z])/g, ' $1').charAt(0).toUpperCase() + page.slice(1)} />} 
             />
           ))}
+
+          
+          <Route path="/clientandtestimonials" element={<Testimonials />} />
         </Routes>
       </HashRouter>
     </div>
@@ -45,4 +51,3 @@ function App() {
 }
 
 export default App;
-

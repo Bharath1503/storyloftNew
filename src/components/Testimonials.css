@@ -1,0 +1,127 @@
+.testimonial-form {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.title {
+    text-align: center;
+    margin: 12px 0; 
+    padding: 7px 0;
+    color: #333;
+   
+}
+
+.labels-container {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.label-comment,
+.label-by {
+    flex: 1;
+    text-align: center;
+    color: #555;
+}
+
+.testimonial-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+}
+
+.input-container {
+    display: flex;
+    flex: 1;
+    justify-content: space-between;
+}
+
+.comments {
+    width: 80%;
+    padding: 30px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    resize: none; 
+    overflow: hidden; 
+    margin-right: 10px;
+    height: auto;
+}
+
+.author {
+    width: 40%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    resize: none; 
+    overflow: hidden; 
+    margin-right: 10px;
+    height: auto;
+}
+
+.buttons-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.add-btn, 
+.delete-btn, 
+.edit-btn, 
+.open-btn {
+    padding: 6px 12px;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.add-btn, 
+.open-btn {
+    background-color: #3498db;
+}
+
+.add-btn:hover, 
+.open-btn:hover {
+    background-color: #2980b9;
+}
+
+.delete-btn {
+    background-color: #e74c3c;
+}
+
+.delete-btn:hover {
+    background-color: #c0392b;
+}
+
+.edit-btn {
+    background-color: #f39c12;
+}
+
+.edit-btn:hover {
+    background-color: #e67e22;
+}
+
+.full-container {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.add-button-container {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 20px;
+}
+
+.drag-icon {
+    cursor: move;
+    margin-right: 10px;
+}

@@ -4,46 +4,37 @@ import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
 
 const Portfolio = () => {
-  var isUseEffectcalled = false;
-  var [imagesbase64,setImagesbase64] = useState([]);
-  var [images,setImages] = useState([]);
-    useEffect(() => {
-        if (!isUseEffectcalled) {
-            isUseEffectcalled = true;
-            let requestOptions = {
-                method: "GET",
-                redirect: "follow"
-            };
+  const [imagesbase64, setImagesbase64] = useState([]);
+  const [images, setImages] = useState([]);
 
-            fetch("https://thestoryloft.in/api/images?section_id=20&refresh=" + Number(Math.random()).toFixed(1), requestOptions)
-                .then((response) => response.json())
-                .then(async (result) => {
-                    console.log(result);
-                    images = result.sort((a, b) => a.image_order - b.image_order);
+  useEffect(() => {
+    const fetchImages = async () => {
+      try {
+        const response = await fetch(
+          `https://thestoryloft.in/api/images?section_id=20&refresh=${Number(Math.random()).toFixed(1)}`,
+          { method: "GET", redirect: "follow" }
+        );
+        const result = await response.json();
+        const sortedImages = result.sort((a, b) => a.image_order - b.image_order);
+        setImages(sortedImages);
 
-                    for (let i = 0; i < (images.length < 4 ? images.length : 4); i++) {
-                        if (images[i]) {
-                            let requestOptions = {
-                                method: "GET",
-                                redirect: "follow"
-                            };
+        const base64Promises = sortedImages.slice(0, 4).map(async (image) => {
+          const base64Response = await fetch(
+            `https://thestoryloft.in/api/base64image?url=${encodeURIComponent(image.image_url)}`,
+            { method: "GET", redirect: "follow" }
+          );
+          return base64Response.text();
+        });
 
-                            await fetch(`https://thestoryloft.in/api/base64image?url=${encodeURIComponent(images[i].image_url)}`, requestOptions)
-                                .then((response) => response.text())
-                                .then((result) => {
-                                    imagesbase64.push(result);
-                                    setImagesbase64(imagesbase64);
-                                    if(i===3)
-                                    setImages(images);  
-                                })
-                                .catch((error) => console.error(error));
-                        }
-                    }
-                })
-                .catch((error) => console.error(error));
-        }
-    }, []);
+        const base64Data = await Promise.all(base64Promises);
+        setImagesbase64(base64Data);
+      } catch (error) {
+        console.error('Error fetching images:', error);
+      }
+    };
 
+    fetchImages();
+  }, []);
 
   return (
     <div className="full-gallery">
@@ -55,7 +46,7 @@ const Portfolio = () => {
               <div className="item-title">
                 <div className="transparent-back"></div>
                 <div className="title-text">
-                  <p><EditIcon/><DeleteIcon/></p>
+                  <p><EditIcon /><DeleteIcon /></p>
                 </div>
               </div>
             </div>
